@@ -1,0 +1,240 @@
+# this file is for a library of terminal commands, or anything else I need handy on a regular basis
+
+
+bug reporting: https://confluence.atlassian.com/display/DEV/JIRA+usage+guidelines
+	bug: A problem which impairs or prevents the functions of the product.
+		"Function X produces error Y when doing Z"
+		"Function X does not produce result Y though doing Z"
+	improvement: An enhancement to an existing feature.
+		"Function X should work faster when doing Z"
+		"Function X needs to do Y in order to make working with Confluence more efficient"
+	New Feature: A new feature of the product.
+		"Add function X to page Y"
+		"Create new feature X to enable Y"
+
+sudo nano /etc/hosts
+	edit the hosts file
+
+sudo killall -HUP mDNSResponder
+	resets the DNS cache
+
+sudo killall <App Name>
+	closes an open application/process, us killall -A to see a list of running processes
+
+open -a <app name>
+	launches an application
+
+netstat
+	shows network status
+
+xcodebuild -project myProj.xcodeproj -target "myTarg" -showBuildSettings
+	this dumps a list of build settings and variables
+
+gcc-6 -c -o test.o test.c
+	this tells gcc to compile the file test.c as an intermediary object file instead of an executable
+
+find -s Library/ -type f -exec cksum {} \; | cksum
+	this calculates a cksum for all files (recursively) in Library/, then computes a cksum of the collection
+
+find -not -iname "." | wc -l
+	this searches for items that do not match, and pipes them to word count by line
+
+for i in `seq 1 30000`; do mkdir $i; done
+	this is a bash FOR loop
+
+ps -ax
+	prints all processes without terminals
+
+pwd
+	prints the current working directory
+
+killall <programname>
+	closes the program
+
+grep "word"
+	searches for "word" and prints matches
+
+sed G
+	pipe output to this will format each return to a new line
+
+gcc -o hello hello.c
+	compiles hello.c into output executable hello
+
+od -v -t x1z message.gz
+	prints binary data in file
+
+gdb 
+	debug, step through
+
+autoconf
+	automatic build scripts
+
+make
+	run a bunch of compiler commands
+
+m4
+	generate source from templates
+
+bison+flex
+	create a custom compiler (try this with lua??)
+
+info 
+	read documentation
+(man)
+
+plantuml
+	compile design graphs
+
+readelf
+	decompile libraries and executables
+
+strace
+	monitor system calls
+
+ltrace
+	library calls (non-system)
+
+gprofile
+	function tracing, memory
+
+valgrind
+	tracing, resources, memory leaks
+
+gdb watch commands
+	overwriting memory
+
+ld
+	linker
+
+otool -L <exec name>
+	this will print info about all of the libraries that this executable depends on
+
+clang++ -std=c++11 -stdlib=libc++ example.cpp -o example_program
+	this compiles a c++ program
+
+
+vim:
+
+:set number
+	this adds line numbers to the terminal
+
+:noh
+ this turns of highlighting "no hilighting"
+
+lua
+   launches lua interpreter
+
+lua prog
+   runs a lua file
+
+lua -i prog
+   runs a lua file, then remains in the interpreter
+
+./<applicationName> -NSOpen "/<pathToFileDocument>"
+   runs the app, launching with a document
+
+open -a <applicationName>.app "/<pathToFileDocument>"
+   same as above, but returns to the terminal
+
+dd if=/dev/urandom of=randomdata.file bs=1024 count=8388608
+   this fills of (output file) with random data from if (input file)
+
+lsof
+   lists all open files by all programs
+
+inotifywait
+   does some monitoring??
+
+jsonlint Bookstore.json -V BookstoreSchema.json
+  after installing jsonlint (using npm), this will validate a json file using the specified schema
+
+===PowerShell===
+
+NuGet Package Manager:
+
+Get-Package ( -Project ProjectName ) | Format-Table -Autosize
+	shows currently installed nuget packages, and widens the output
+
+FFMpeg:
+
+ffmpeg -i <inputFile> <outputfile>
+	reencodes the input file to the output file
+
+
+	
+
+
+ 
+
+invoke-webrequest $source -outfile $destination
+ downloads source to destination
+
+
+===WindowsCMD===
+ 
+findstr "searchword" *
+	searches the current directory for matching strings in files
+
+findstr /v /i "<string>"
+  this will search for files, ignoring matches to <string>
+
+dir
+  same as ls basically
+
+type
+  same as cat basically
+
+type filename1 >> filename2
+  appends filename1 to the end of filename2
+
+certutil -hashfile systemupdate5.07.0065.exe SHA256
+  this calculates the hash of a file, using the specified algorithm
+
+telnet google.com 80
+GET / HTTP/1.0
+Host: google.com
+ sends http requests to host, type them in
+
+curl -H "Content-Type: application/json" -X POST -d '{value: "600"}'
+http://localhost:8888/my/endpoint
+ another way to send http requests
+
+saxon (batch command shortcut for Query.exe)
+
+saxon -s:BookstoreQ.xml -qs:"//*"
+ query source <>.xml with querystring...
+
+saxon -qs:"doc('BookstoreQ.xml')"
+ same as above
+
+saxon -qs:"for $x in doc('BookstoreQ.xml')/Bookstore/Book/Title return (text{'&#10;'},$x)"
+ this adds a newline before each item returned by the query
+
+xml el <filename>
+ this will show the structure of elements in the given file
+===python===
+
+python --version
+ shows the version
+
+pip install packagename
+ installs a python package
+
+pip show -f radb
+ shows were radb is installed
+
+python -m http.server
+ creates and opens an http server in the current directory
+
+===radb===
+
+https://users.cs.duke.edu/~junyang/radb/start.html
+ shows getting started with radb
+
+
+===node===
+
+node <filename.js>
+ runs the specified file
+
+
